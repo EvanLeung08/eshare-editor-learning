@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -43,11 +42,11 @@ public class EditorController {
     }
 
 
-    @RequestMapping("/show")
-    public String edit(Model model, @RequestParam(value = "title") String title ) {
+    @RequestMapping("/view")
+    public String view(Model model, @RequestParam(value = "title") String title ) {
         List<Blog> blogs = blogService.findByBlogTitle(title);
         model.addAttribute("blog",blogs.get(0));
-        return "show";
+        return "view";
     }
 
     @PostMapping("/uploadfile")
