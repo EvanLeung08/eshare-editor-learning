@@ -1,23 +1,20 @@
-package com.eshare.markdown.demo;
+package com.eshare.markdown;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class MarkdownLearningApplication extends SpringBootServletInitializer {
+public class EditorApplication extends SpringBootServletInitializer {
 
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(MarkdownLearningApplication.class);
+		return application.sources(EditorApplication.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(MarkdownLearningApplication.class, args);
+		SpringApplication.run(EditorApplication.class, args);
 	}
 }
