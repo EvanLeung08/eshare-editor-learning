@@ -15,4 +15,6 @@ public interface BlogService {
     public Blog findByBlogId(Long id);
 
     List<Blog> findByBlogTitle(String title);
+
+    List<Blog> findAll();
 }

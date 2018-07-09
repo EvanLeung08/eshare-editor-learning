@@ -23,7 +23,7 @@ import java.util.List;
  * Email:10856214@163.com
  */
 @Controller
-public class EditorController {
+public class BlogController {
 
     @Autowired
     private BlogService blogService;
@@ -31,6 +31,12 @@ public class EditorController {
     @RequestMapping("/edit")
     public String edit() {
         return "edit";
+    }
+
+
+    @RequestMapping("/")
+    public String index() {
+        return "index";
     }
 
     @RequestMapping("/save")
@@ -41,11 +47,19 @@ public class EditorController {
         blogService.save(blog);
     }
 
+    @RequestMapping("/list")
+    public String list(Model model) {
+        List<Blog> blogs = blogService.findAll();
+        //暂时展示一条
+        model.addAttribute("blog", blogs.get(0));
+        return "view";
+    }
+
 
     @RequestMapping("/view")
-    public String view(Model model, @RequestParam(value = "title") String title ) {
+    public String view(Model model, @RequestParam(value = "title", required = false) String title) {
         List<Blog> blogs = blogService.findByBlogTitle(title);
-        model.addAttribute("blog",blogs.get(0));
+        model.addAttribute("blog", blogs.get(0));
         return "view";
     }
 
