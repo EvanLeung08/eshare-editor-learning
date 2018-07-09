@@ -1,6 +1,6 @@
-package com.eshare.markdown.repository;
+package com.eshare.blog.repository;
 
-import com.eshare.markdown.entity.Blog;
+import com.eshare.blog.entity.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

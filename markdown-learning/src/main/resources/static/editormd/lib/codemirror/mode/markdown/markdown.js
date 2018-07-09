@@ -760,6 +760,6 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
   return mode;
 }, "xml");
 
-CodeMirror.defineMIME("text/x-markdown", "markdown");
+CodeMirror.defineMIME("text/x-blog", "markdown");
 
 });

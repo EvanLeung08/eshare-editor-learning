@@ -1,6 +1,6 @@
-package com.eshare.markdown.service;
+package com.eshare.blog.service;
 
-import com.eshare.markdown.entity.Blog;
+import com.eshare.blog.entity.Blog;
 
 import java.util.List;
 

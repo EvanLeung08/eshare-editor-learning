@@ -89,19 +89,19 @@
     };
     
     editormd.defaults     = {
-        mode                 : "gfm",          //gfm or markdown
+        mode                 : "gfm",          //gfm or blog
         name                 : "",             // Form element name
-        value                : "",             // value for CodeMirror, if mode not gfm/markdown
+        value                : "",             // value for CodeMirror, if mode not gfm/blog
         theme                : "",             // Editor.md self themes, before v1.5.0 is CodeMirror theme, default empty
         editorTheme          : "default",      // Editor area, this is CodeMirror theme at v1.5.0
         previewTheme         : "",             // Preview area theme, default empty
         markdown             : "",             // Markdown source code
-        appendMarkdown       : "",             // if in init textarea value not empty, append markdown to textarea
+        appendMarkdown       : "",             // if in init textarea value not empty, append blog to textarea
         width                : "100%",
         height               : "100%",
         path                 : "./lib/",       // Dependents module file directory
         pluginPath           : "",             // If this empty, default use settings.path + "../plugins/"
-        delay                : 300,            // Delay parse markdown to html, Uint : ms
+        delay                : 300,            // Delay parse blog to html, Uint : ms
         autoLoadModules      : true,           // Automatic load dependent module files
         watch                : true,
         placeholder          : "Enjoy Markdown! coding now...",
@@ -377,7 +377,7 @@
             var classNames       = this.classNames   = {
                 textarea : {
                     html     : classPrefix + "html-textarea",
-                    markdown : classPrefix + "markdown-textarea"
+                    markdown : classPrefix + "blog-textarea"
                 }
             };
             
@@ -411,13 +411,13 @@
             
             if (typeof markdownTextarea.attr("name") === "undefined" || markdownTextarea.attr("name") === "")
             {
-                markdownTextarea.attr("name", (settings.name !== "") ? settings.name : id + "-markdown-doc");
+                markdownTextarea.attr("name", (settings.name !== "") ? settings.name : id + "-blog-doc");
             }
             
             var appendElements = [
                 (!settings.readOnly) ? "<a href=\"javascript:;\" class=\"fa fa-close " + classPrefix + "preview-close-btn\"></a>" : "",
                 ( (settings.saveHTMLToTextarea) ? "<textarea class=\"" + classNames.textarea.html + "\" name=\"" + id + "-html-code\"></textarea>" : "" ),
-                "<div class=\"" + classPrefix + "preview\"><div class=\"markdown-body " + classPrefix + "preview-container\"></div></div>",
+                "<div class=\"" + classPrefix + "preview\"><div class=\"blog-body " + classPrefix + "preview-container\"></div></div>",
                 "<div class=\"" + classPrefix + "container-mask\" style=\"display:block;\"></div>",
                 "<div class=\"" + classPrefix + "mask\"></div>"
             ].join("\n");
@@ -1545,7 +1545,7 @@
             var percent   = (scrollTop / codeView[0].scrollHeight);
             var tocHeight = 0;
 
-            preview.find(".markdown-toc-list").each(function(){
+            preview.find(".blog-toc-list").each(function(){
                 tocHeight += $(this).height();
             });
 
@@ -1678,7 +1678,7 @@
                     
                     var tocHeight = 0;
                     
-                    preview.find(".markdown-toc-list").each(function(){
+                    preview.find(".blog-toc-list").each(function(){
                         tocHeight += $(this).height();
                     });
                     
@@ -2059,7 +2059,7 @@
             
                     if (settings.tocContainer !== "")
                     {
-                        previewContainer.find(".markdown-toc").css("border", "none");
+                        previewContainer.find(".blog-toc").css("border", "none");
                     }
                 }
                 
@@ -2252,7 +2252,7 @@
         
         /**
          * 获取编辑器的markdown源文档
-         * Set Editor.md markdown/CodeMirror value
+         * Set Editor.md blog/CodeMirror value
          * 
          * @returns {editormd}         返回editormd的实例对象
          */
@@ -3613,7 +3613,7 @@
                 text = (isTeXLine) ? text.replace(/\$/g, "") : text;
             }
             
-            var tocHTML = "<div class=\"markdown-toc editormd-markdown-toc\">" + text + "</div>";
+            var tocHTML = "<div class=\"blog-toc editormd-blog-toc\">" + text + "</div>";
             
             return (isToC) ? ( (isToCMenu) ? "<div class=\"editormd-toc-menu\">" + tocHTML + "</div><br/>" : tocHTML )
                            : ( (pageBreakReg.test(text)) ? this.pageBreak(text) : "<p" + isTeXAddClass + ">" + this.atLink(this.emoji(text)) + "</p>\n" );
@@ -3709,17 +3709,17 @@
             lastLevel = level;
         }
         
-        var tocContainer = container.find(".markdown-toc");
+        var tocContainer = container.find(".blog-toc");
         
         if ((tocContainer.length < 1 && container.attr("previewContainer") === "false"))
         {
-            var tocHTML = "<div class=\"markdown-toc " + classPrefix + "markdown-toc\"></div>";
+            var tocHTML = "<div class=\"blog-toc " + classPrefix + "blog-toc\"></div>";
             
             tocHTML = (tocDropdown) ? "<div class=\"" + classPrefix + "toc-menu\">" + tocHTML + "</div>" : tocHTML;
             
             container.html(tocHTML);
             
-            tocContainer = container.find(".markdown-toc");
+            tocContainer = container.find(".blog-toc");
         }
         
         if (tocDropdown)
@@ -3727,7 +3727,7 @@
             tocContainer.wrap("<div class=\"" + classPrefix + "toc-menu\"></div><br/>");
         }
         
-        tocContainer.html("<ul class=\"markdown-toc-list\"></ul>").children(".markdown-toc-list").html(html.replace(/\r?\n?\<ul\>\<\/ul\>/g, ""));
+        tocContainer.html("<ul class=\"blog-toc-list\"></ul>").children(".blog-toc-list").html(html.replace(/\r?\n?\<ul\>\<\/ul\>/g, ""));
         
         return tocContainer;
     };
@@ -3751,7 +3751,7 @@
 
         tocMenus.each(function() {
             var $this  = $(this);
-            var toc    = $this.children(".markdown-toc");
+            var toc    = $this.children(".blog-toc");
             var icon   = "<i class=\"fa fa-angle-down\"></i>";
             var btn    = "<a href=\"javascript:;\" class=\"toc-menu-btn\">" + icon + tocTitle + "</a>";
             var menu   = toc.children("ul");            
@@ -3969,7 +3969,7 @@
             saveTo.remove();
         }
         
-        div.addClass("markdown-body " + this.classPrefix + "html-preview").append(markdownParsed);
+        div.addClass("blog-body " + this.classPrefix + "html-preview").append(markdownParsed);
         
         var tocContainer = (settings.tocContainer !== "") ? $(settings.tocContainer) : div;
         
@@ -3989,7 +3989,7 @@
             
             if (settings.tocContainer !== "")
             {
-                div.find(".editormd-toc-menu, .editormd-markdown-toc").remove();
+                div.find(".editormd-toc-menu, .editormd-blog-toc").remove();
             }
         }
             

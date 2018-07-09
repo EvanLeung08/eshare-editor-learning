@@ -1,7 +1,7 @@
-package com.eshare.markdown.controller;
+package com.eshare.blog.controller;
 
-import com.eshare.markdown.entity.Blog;
-import com.eshare.markdown.service.BlogService;
+import com.eshare.blog.entity.Blog;
+import com.eshare.blog.service.BlogService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

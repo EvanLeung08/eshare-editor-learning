@@ -1,4 +1,4 @@
-package com.eshare.markdown.entity;
+package com.eshare.blog.entity;
 
 import javax.persistence.*;
 

@@ -1,8 +1,8 @@
-package com.eshare.markdown.service.impl;
+package com.eshare.blog.service.impl;
 
-import com.eshare.markdown.entity.Blog;
-import com.eshare.markdown.repository.BlogRepository;
-import com.eshare.markdown.service.BlogService;
+import com.eshare.blog.entity.Blog;
+import com.eshare.blog.repository.BlogRepository;
+import com.eshare.blog.service.BlogService;
 import com.mysql.jdbc.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

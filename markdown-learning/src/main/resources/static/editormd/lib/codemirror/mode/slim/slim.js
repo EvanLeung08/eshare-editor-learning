@@ -27,7 +27,7 @@
       styl: "text/x-styl", // no highlighting so far
       coffee: "coffeescript",
       asciidoc: "text/x-asciidoc",
-      markdown: "text/x-markdown",
+      markdown: "text/x-blog",
       textile: "text/x-textile", // no highlighting so far
       creole: "text/x-creole", // no highlighting so far
       wiki: "text/x-wiki", // no highlighting so far

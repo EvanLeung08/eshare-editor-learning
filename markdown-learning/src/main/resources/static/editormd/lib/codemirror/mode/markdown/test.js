@@ -743,7 +743,7 @@
      "[link <http://github.com/>]");
 
   MT("xmlModeWithMarkdownInside",
-     "[tag&bracket <][tag div] [attribute markdown]=[string 1][tag&bracket >]",
+     "[tag&bracket <][tag div] [attribute blog]=[string 1][tag&bracket >]",
      "[em *foo*]",
      "[link <http://github.com/>]",
      "[tag </div>]",
