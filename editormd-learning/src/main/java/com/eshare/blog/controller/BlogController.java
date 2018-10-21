@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -25,7 +26,7 @@ import java.util.List;
 @Controller
 public class BlogController {
 
-    @Autowired
+    @Resource
     private BlogService blogService;
 
     @RequestMapping("/edit")
